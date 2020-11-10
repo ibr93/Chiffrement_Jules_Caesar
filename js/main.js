@@ -58,7 +58,7 @@ function genererAlphabetChiffrer(nombreDecalageChoisi) {
 
 function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
    var array_message = Array.from(message);
-   var resultat = [];
+   var resultat = '';
    array_message = array_message
       .filter(p => p.toLowerCase() === ' ' || (p.toLowerCase().charCodeAt() >=A_ASCII_CODE &&  p.toLowerCase().charCodeAt() <= Z_ASCII_CODE))
       .map(p => {
@@ -73,9 +73,9 @@ function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
                temp = temp.toUpperCase();
             }
          }
-      resultat.push(temp);
+      resultat += temp;
    });
-   return resultat.join().replace(,, '');
+   return resultat;
 }
 
 
