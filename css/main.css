@@ -1,0 +1,33 @@
+
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Montserrat', sans-serif;
+}
+
+html {
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+  }
+
+body{
+	background: url('images\search_131.png');
+}
+
+body div {
+    width: 60%;
+    padding: 1.6rem;
+    border-radius: 12px;
+    background-color: white;
+    margin: 30px auto;
+}
+
+button {
+    margin-right: 11px;
+    padding: 10px;
+    font-size: 1.2rem;
+    text-align: justify;
+    display: flex;
+}

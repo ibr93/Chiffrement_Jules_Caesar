@@ -11,6 +11,8 @@ var btnDechiffre = document.getElementById('btn_dechiffre');
 var btnReset = document.getElementById('btn_reset');
 var txtMessage = document.getElementById('message');
 var selectAtteributeNombreDecallage = document.getElementById('select-nombreDecallage');
+var lblResultat = document.getElementById('txt_res');
+//document.getElementById('txt_res').innerHTML = "Velo";
 
 for(var i=0; i<NOMBREDECALAGEPOSSIBLE; i++){
    var opt = document.createElement('option');
@@ -25,13 +27,15 @@ for(var i=0; i<NOMBREDECALAGEPOSSIBLE; i++){
 btnChiffre.onclick = () =>{
    var message = txtMessage.value.trim();
    var resultat = ChiffrerOrDechiffreMessage(message, ALPHABETCLAIR, alphabetChiffre);
+   lblResultat.innerHTML = resultat;
    console.log(resultat);
 };
 
 btnDechiffre.onclick = () =>{
    var message = txtMessage.value.trim();
    var resultat = ChiffrerOrDechiffreMessage(message, alphabetChiffre, ALPHABETCLAIR);
-   console.log(resultat);
+   lblResultat.innerHTML = resultat;
+   console.log(lblResultat);
 };
 
 selectAtteributeNombreDecallage.addEventListener("change", () =>{
@@ -75,6 +79,7 @@ function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
          }
       resultat += temp;
    });
+   txtMessage.value = '';
    return resultat;
 }
 
