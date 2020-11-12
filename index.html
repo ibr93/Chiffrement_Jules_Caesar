@@ -5,27 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="OUEDRAOGO Ibrahim">
-  <link href="css/main.css" rel="stylesheet" />
+  <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+  <link href="css/main.css" rel="stylesheet" type="text/css"/>
+  <title>Chiffré et déchiffre Cesar</title>
 </head>
 
 <body>
   <div>
-    <div>
+    <header>
       <h1>Bienvenu sur la page de chiffrements des messages</h1>
-      <p>Le petit programme javascript ci-dessous vous permettra de chiffrer/déchiffrer un message non accentué (au
-        besoin prétraitez le texte) avec le chiffrement de César. Écrivez votre texte puis choisissez le décalage.</h2>
-    </div>
+      <p>
+        Le petit programme javascript ci-dessous vous permettra de chiffrer/déchiffrer un message non accentué (au
+        besoin prétraitez le texte) avec le chiffrement de César. Écrivez votre texte puis choisissez le décalage.
+      </p>
+    </header>
+    <section>
     <form>
       <center>
         <table>
           <tbody>
             <tr>
               <td rowspan="4"><img src="images/engrenage.gif" width="50" height="58"></td>
-              <td bgcolor="#08FF7C">Message clair<br>
+              <td bgcolor="#08FF7C">Message<br>
                 <br>
                 <center><img src="images/cadenaso.gif" width="27" height="28"></center>
               </td>
-              <td bgcolor="#08FF7C"><textarea name="clair" rows="6" cols="70" wrap="virtual">CHIFFRE DE CESAR</textarea>
+              <td bgcolor="#08FF7C"><textarea id="message" rows="6" cols="70" wrap="virtual" placeholder="Entrer le message à chiffrer"></textarea>
               </td>
             </tr>
             <tr bgcolor="#FFCCFF">
@@ -35,25 +40,19 @@
                   <tbody>
                     <tr>
                       <td>
-                        <input type="TEXT" name="decalage" size="3" value="3">
-                      </td>
-                      <td>
-                        <input type="BUTTON" value="+" onclick="Plus(decalage)" name="BUTTON">
-                      </td>
-                      <td>
-                        <input type="BUTTON" value="-" onclick="Moins(decalage)" name="BUTTON2">
+                        <input type="number" id="decallage" size="3" min="1" max="25" value="1">
                       </td>
                       <td width="30"></td>
-                      <td><img align="Middle" src="images/down.gif" width="25" height="25"></td>
+                      <td><img align="middle" src="images/down.gif" width="25" height="25"></td>
                       <td>
-                        <input type="BUTTON" value="Chiffrer" " name=" BUTTON3">
+                        <input type="button" id="btn_chiffre" value="Chiffrer">
                       </td>
-                      <td><img align="Middle" src="images/up.gif" width="25" height="25"></td>
+                      <td><img align="middle" src="images/up.gif" width="25" height="25"></td>
                       <td>
-                        <input type="BUTTON" value="Déchiffrer" name="BUTTON4">
+                        <input type="button" id="btn_dechiffre" value="Déchiffrer" >
                       </td>
                       <td>
-                        <input type="BUTTON" value="Effacer" name="BUTTON5">
+                        <input type="button" id="btn_reset" value="Effacer">
                       </td>
                     </tr>
                   </tbody>
@@ -61,19 +60,19 @@
               </td>
             </tr>
             <tr>
-              <td bgcolor="#FFFF99">Message chiffré<br>
+              <td bgcolor="#FFFF99">Résultat<br>
                 <br>
                 <center>
                   <img src="images/cadenasf.gif" width="17" height="28">
                 </center>
               </td>
-              <td bgcolor="#FFFF99"><textarea name="chiffre" rows="6" cols="70" wrap="virtual"></textarea></td>
+              <td bgcolor="#FFFF99"><textarea name="chiffre" id="txt_res" rows="6" cols="70" wrap="virtual"></textarea></td>
             </tr>
           </tbody>
         </table>
       </center>
     </form>
-
+  </section>
     <!--
               <select id="select-nombreDecallage" name="selectNombreDecal">
                 <option placeholder="">Selectionné le nombre de lettre à decaller</option>
@@ -86,12 +85,14 @@
               <button id="btn_dechiffre" type="button">Dechiffrer</button>
               <button id="btn_reset" type="button">Reinitialiser</button>
             </div>
-            -->
-    <div id="txt_res"></div>
-  </div>
+            
+           <div id="txt_res"></div>
+    -->
+  <footer>
+    https://www.apprendre-en-ligne.net/crypto/cesar/index.html
+  </footer>
+</div>
   <script type="text/javascript" src="js/main.js"></script>
-
-  https://www.apprendre-en-ligne.net/crypto/cesar/index.html
 </body>
 
 </html>

@@ -1,64 +1,58 @@
 "use strict";
-const NOMBREDECALAGEPOSSIBLE = 25;
-const A_ASCII_CODE = 'a'.charCodeAt(0);
-const Z_ASCII_CODE = 'z'.charCodeAt(0);
-const ALPHABETCLAIR = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-const NOMBRE_ALPHABET = 26;
-var alphabetChiffre = [];
-var nombreDecalageChoisi = 0;
-var btnChiffre = document.getElementById('btn_chiffre');
-var btnDechiffre = document.getElementById('btn_dechiffre');
-var btnReset = document.getElementById('btn_reset');
-var txtMessage = document.getElementById('message');
-var selectAtteributeNombreDecallage = document.getElementById('select-nombreDecallage');
-var lblResultat = document.getElementById('txt_res');
-//document.getElementById('txt_res').innerHTML = "Velo";
+const A_ASCII_CODE = 'a'.charCodeAt(0); // code ASCII de la lettre a
+const Z_ASCII_CODE = 'z'.charCodeAt(0); // code ASCII de la lettre z
+const ALPHABETCLAIR = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']; // Dictionnaire de l'alphabet clair
+const NOMBRE_ALPHABET = 26; // nombre de lettre de l'alphabet
+var alphabetChiffre = []; //Dictionnaire de de l'alphabet chiffré
+var btnChiffre = document.getElementById('btn_chiffre'); //recuperation de la balise button avec l'Id btn_chiffré
+var btnDechiffre = document.getElementById('btn_dechiffre'); //recuperation de la balise button avec l'Id btn_dechiffré
+var btnReset = document.getElementById('btn_reset');//recuperation de la balise button avec l'Id btn_reset
+var txtMessage = document.getElementById('message'); //recuperation de la balise textbox avec l'Id message
+var txtDecallage = document.getElementById('decallage'); //recuperation de la balise input avec l'Id decallage
+var lblResultat = document.getElementById('txt_res'); //recuperation de la balise textbox avec l'Id txt_res
 
-for(var i=0; i<NOMBREDECALAGEPOSSIBLE; i++){
-   var opt = document.createElement('option');
-   opt.value = (i+1).toString();
-   opt.innerHTML = (i+1).toString();
-   opt.onselect = function(res) {
-      console.log(res);
-   }
-   selectAtteributeNombreDecallage.appendChild(opt);
-}
-
-btnChiffre.onclick = () =>{
-   var message = txtMessage.value.trim();
+btnChiffre.onclick = () =>{ // creation d'un ecouteur des evenements clique sur le bouton chiffre
+   var message = txtMessage.value.trim(); //upprimer les espaces du début et de la fin de la valeur de saisie
    var resultat = ChiffrerOrDechiffreMessage(message, ALPHABETCLAIR, alphabetChiffre);
    lblResultat.innerHTML = resultat;
    console.log(resultat);
 };
 
-btnDechiffre.onclick = () =>{
+btnDechiffre.onclick = () =>{ // creation d'un ecouteur des evenements clique sur le bouton dechiffre
    var message = txtMessage.value.trim();
    var resultat = ChiffrerOrDechiffreMessage(message, alphabetChiffre, ALPHABETCLAIR);
    lblResultat.innerHTML = resultat;
-   console.log(lblResultat);
 };
 
-selectAtteributeNombreDecallage.addEventListener("change", () =>{
-   nombreDecalageChoisi =parseInt(selectAtteributeNombreDecallage.value, 0);
-   genererAlphabetChiffrer(nombreDecalageChoisi);
+txtDecallage.addEventListener("change", () =>{ // creation d'un ecouteur d'evenement sur les changement du chiffre de decallage
+//   console.log(txtDecallage.value);
+   genererAlphabetChiffrer(txtDecallage.value); // initiation ou reinitialisation du tableau chiffré
 }, false);
 
-btnReset.addEventListener('click', () =>{
+btnReset.addEventListener('click', () =>{ // creation d'un ecouteur des evenements clique sur le bouton effacer
    txtMessage.value = '';
    selectAtteributeNombreDecallage.selectedIndex = 0;
 }, false);
 
+/**
+*  Cette fonction permet de generer un alphabet chiffré
+*  Elle prend en parametre un entier correspondant au nombre de decallage saisi par l'utilisateur
+*  Et remplis le dictionnaire de l'alphabet chiffré
+*/
 function genererAlphabetChiffrer(nombreDecalageChoisi) {
-   alphabetChiffre = [];
-   ALPHABETCLAIR.map((_, index) => {
-      var lettreChiffre = index + A_ASCII_CODE - nombreDecalageChoisi;
-      if(lettreChiffre < A_ASCII_CODE){
+   alphabetChiffre = []; // reinitialialisation du dictionnaire chiffré
+   ALPHABETCLAIR.map((_, index) => { // nous iterons les element du dictionnaire de
+      var lettreChiffre = index + A_ASCII_CODE - nombreDecalageChoisi; // calcul du decallage des lettres
+      if(lettreChiffre < A_ASCII_CODE) {
          lettreChiffre += NOMBRE_ALPHABET;
       }
-      alphabetChiffre.push(String.fromCharCode(lettreChiffre));
-   //  console.log(String.fromCharCode(lettreChiffre));
+      alphabetChiffre.push(String.fromCharCode(lettreChiffre)); // insetion de la corresponce chiffré de le ième lettre du dictionnaire claire
    });
 }
+
+/**
+*
+*/
 
 function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
    var array_message = Array.from(message);
@@ -77,10 +71,9 @@ function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
                temp = temp.toUpperCase();
             }
          }
+
       resultat += temp;
    });
    txtMessage.value = '';
    return resultat;
 }
-
-
