@@ -11,6 +11,8 @@ var txtMessage = document.getElementById('message'); //recuperation de la balise
 var txtDecallage = document.getElementById('decallage'); //recuperation de la balise input avec l'Id decallage
 var lblResultat = document.getElementById('txt_res'); //recuperation de la balise textbox avec l'Id txt_res
 
+genererAlphabetChiffrer(1); // generation d'un decallage a 1 chiffre au chargement de la page
+
 btnChiffre.onclick = () =>{ // creation d'un ecouteur des evenements clique sur le bouton chiffre
    var message = txtMessage.value.trim(); //upprimer les espaces du début et de la fin de la valeur de saisie
    var resultat = ChiffrerOrDechiffreMessage(message, ALPHABETCLAIR, alphabetChiffre);
@@ -31,7 +33,7 @@ txtDecallage.addEventListener("change", () =>{ // creation d'un ecouteur d'evene
 
 btnReset.addEventListener('click', () =>{ // creation d'un ecouteur des evenements clique sur le bouton effacer
    txtMessage.value = '';
-   selectAtteributeNombreDecallage.selectedIndex = 0;
+   lblResultat.value = '';
 }, false);
 
 /**
@@ -53,7 +55,6 @@ function genererAlphabetChiffrer(nombreDecalageChoisi) {
 /**
 *
 */
-
 function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
    var array_message = Array.from(message);
    var resultat = '';
@@ -74,6 +75,6 @@ function ChiffrerOrDechiffreMessage(message, dicoEnClair, dicoChiffrer){
 
       resultat += temp;
    });
-   txtMessage.value = '';
+ //  txtMessage.value = '';
    return resultat;
 }

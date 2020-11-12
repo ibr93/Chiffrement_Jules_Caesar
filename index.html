@@ -1,34 +1,38 @@
-<html>
-
+<html lang="bf">
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="author" content="OUEDRAOGO Ibrahim">
   <link href="css/normalize.css" rel="stylesheet" type="text/css"/>
+  <link href="css/w3.css" rel="stylesheet" type="text/css"/>
+  <link href="css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+ <!-- <link href="css/w3-theme-black.css" rel="stylesheet" type="text/css"/>
+  <link href="css/w3-colors-flat.css" rel="stylesheet" type="text/css"/>-->
   <link href="css/main.css" rel="stylesheet" type="text/css"/>
   <title>Chiffré et déchiffre Cesar</title>
 </head>
 
 <body>
-  <div>
-    <header>
+  <div id="contenu">
+    <header class="w3-container w3-center w3-light-gray">
       <h1>Bienvenu sur la page de chiffrements des messages</h1>
       <p>
         Le petit programme javascript ci-dessous vous permettra de chiffrer/déchiffrer un message non accentué (au
         besoin prétraitez le texte) avec le chiffrement de César. Écrivez votre texte puis choisissez le décalage.
       </p>
     </header>
-    <section>
+    <main class="w3-center w3-container">
     <form>
-      <center>
         <table>
           <tbody>
             <tr>
               <td rowspan="4"><img src="images/engrenage.gif" width="50" height="58"></td>
               <td bgcolor="#08FF7C">Message<br>
                 <br>
-                <center><img src="images/cadenaso.gif" width="27" height="28"></center>
+                <center>
+                <img src="images/cadenaso.gif" width="27" height="28">
+              </center>
               </td>
               <td bgcolor="#08FF7C"><textarea id="message" rows="6" cols="70" wrap="virtual" placeholder="Entrer le message à chiffrer"></textarea>
               </td>
@@ -40,19 +44,16 @@
                   <tbody>
                     <tr>
                       <td>
-                        <input type="number" id="decallage" size="3" min="1" max="25" value="1">
-                      </td>
-                      <td width="30"></td>
-                      <td><img align="middle" src="images/down.gif" width="25" height="25"></td>
-                      <td>
-                        <input type="button" id="btn_chiffre" value="Chiffrer">
-                      </td>
-                      <td><img align="middle" src="images/up.gif" width="25" height="25"></td>
-                      <td>
-                        <input type="button" id="btn_dechiffre" value="Déchiffrer" >
+                        <input class="w3-input" type="number" id="decallage" size="3" min="1" max="25" value="1">
                       </td>
                       <td>
-                        <input type="button" id="btn_reset" value="Effacer">
+                        <button type="button" id="btn_chiffre" class="w3-btn w3-blue">Chiffrer</button>
+                      </td>
+                      <td>
+                        <button type="button" id="btn_dechiffre" class="w3-btn w3-green">Déchiffrer</button>
+                      </td>
+                      <td>
+                        <button type="button" id="btn_reset" class="w3-btn w3-red">Effacer</button>
                       </td>
                     </tr>
                   </tbody>
@@ -70,26 +71,19 @@
             </tr>
           </tbody>
         </table>
-      </center>
     </form>
-  </section>
-    <!--
-              <select id="select-nombreDecallage" name="selectNombreDecal">
-                <option placeholder="">Selectionné le nombre de lettre à decaller</option>
-              </select>
-            <div>
-              <input id="message" type="text" placeholder="Entrer le message à chiffrer" />
-            </div>
-            <div>
-              <button id="btn_chiffre" type="button">Chiffrer</button>
-              <button id="btn_dechiffre" type="button">Dechiffrer</button>
-              <button id="btn_reset" type="button">Reinitialiser</button>
-            </div>
-            
-           <div id="txt_res"></div>
-    -->
-  <footer>
-    https://www.apprendre-en-ligne.net/crypto/cesar/index.html
+  </main>
+
+  <footer class="w3-container w3-center w3-bar w3-light-gray">
+    <div>
+      <h4>
+        Le design de l'application est inspiré du site web
+      </h4>
+    </div>
+    <div>
+      <a target="__blank" href="https://www.apprendre-en-ligne.net/crypto/cesar/index.html">https://www.apprendre-en-ligne.net/crypto/cesar/index.html</a>
+    </div>
+    &copy; 2020 - OUEDRAOGO IBRAHIM - Aucun droit reservé
   </footer>
 </div>
   <script type="text/javascript" src="js/main.js"></script>

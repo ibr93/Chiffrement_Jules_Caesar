@@ -1,46 +1,28 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-padding: 0;
-font-family: 'Montserrat', sans-serif;
+html{
+  height: 100%;
 }
-
-html {
-    line-height: 1.15;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    min-height: 100%;
-     margin: 0;
+body{
+  width: 60%;
+  background: url("../images/Cesar_QuiSuisJe.gif") no-repeat right whitesmoke;
 }
-
 header{
-	padding:25px 0px;/*Marge verticale*/
-	background-color:#99A79A; /*Couleur de fond*/
-	text-align:center;/*texte centré*/
+  height: 25vh;
+}
+main{
+  height: 50vh;
+  margin-top: 10vh;
+}
+footer{
+  height: 15vh;
+  
 }
 
-body {
-    padding: 30px;
-    background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-    box-sizing: border-box;
-  }
-
-body div {
-    width: 60%;
-    padding: 1.6rem;
-    border-radius: 12px;
-    margin: 30px auto;
-  /*  background-image: url('images\search_131.png');*/
+#contenu {
+  background-color: white;
+  border: 1px solid #BFBFBF;
+  box-shadow: 10px 10px 10px 10px #aaaaaa;
 }
 
-button {
- /*   margin-right: 11px;*/
-    padding: 10px;
-    font-size: 1.2rem;
-    text-align: justify;
-    display: flex;
+form,table,body,img {
+  margin: 0 auto;
 }
-
-
