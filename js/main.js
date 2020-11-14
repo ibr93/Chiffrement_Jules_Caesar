@@ -15,15 +15,18 @@ genererAlphabetChiffrer(1); // generation d'un decallage a 1 chiffre au chargeme
 
 btnChiffre.onclick = () =>{ // creation d'un ecouteur des evenements clique sur le bouton chiffre
    var message = txtMessage.value.trim(); //upprimer les espaces du début et de la fin de la valeur de saisie
+   lblResultat.value = "";
    var resultat = ChiffrerOrDechiffreMessage(message, ALPHABETCLAIR, alphabetChiffre);
-   lblResultat.innerHTML = resultat;
+   lblResultat.value = resultat;
    console.log(resultat);
 };
 
 btnDechiffre.onclick = () =>{ // creation d'un ecouteur des evenements clique sur le bouton dechiffre
    var message = txtMessage.value.trim();
+   lblResultat.value = "";
    var resultat = ChiffrerOrDechiffreMessage(message, alphabetChiffre, ALPHABETCLAIR);
-   lblResultat.innerHTML = resultat;
+   lblResultat.value = resultat;
+   console.log(resultat);
 };
 
 txtDecallage.addEventListener("change", () =>{ // creation d'un ecouteur d'evenement sur les changement du chiffre de decallage
